@@ -36,6 +36,18 @@ html, body {
 
 This is automatically applied when you include the stylesheet.
 
+### Breakout CSS
+
+Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities for breaking out images and figures beyond their container width. Use the `.breakout` class to allow elements to extend beyond their parent container:
+
+```html
+<div class="breakout">
+  <img src="image.jpg" alt="Description">
+</div>
+```
+
+The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. This is automatically included when you import the stylesheet.
+
 ## License
 
 MIT

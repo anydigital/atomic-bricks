@@ -9,6 +9,12 @@ html, body {
   overflow-x: clip;
 }
 
+/* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
+
+body {
+  min-height: 100dvh;
+}
+
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 
 .breakout {

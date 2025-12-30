@@ -1,0 +1,10 @@
+/**
+ * @anydigital/atomic-bricks
+ * Framework-agnostic CSS utility helpers
+ */
+
+/* Prevent horizontal overflow and scrolling, modern way */
+html, body {
+  overflow-x: clip;
+}
+

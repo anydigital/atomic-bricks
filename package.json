@@ -1,0 +1,35 @@
+{
+  "name": "@anydigital/atomic-bricks",
+  "version": "1.0.0-dev",
+  "description": "Framework-agnostic CSS utility helpers for modern web development",
+  "main": "dist/atomic-bricks.css",
+  "style": "dist/atomic-bricks.css",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "npx postcss src/atomic-bricks.css --no-map -o dist/atomic-bricks.css",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anydigital/atomic-bricks.git"
+  },
+  "keywords": [
+    "css",
+    "utilities",
+    "helpers",
+    "atomic",
+    "cdn"
+  ],
+  "author": "Anton Staroverov",
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0"
+  },
+  "jsdelivr": "dist/atomic-bricks.css",
+  "unpkg": "dist/atomic-bricks.css"
+}
+

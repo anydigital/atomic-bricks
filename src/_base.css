@@ -1,0 +1,5 @@
+/* Prevent horizontal overflow and scrolling, modern way */
+html, body {
+  overflow-x: clip;
+}
+

@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "build": "npx postcss src/atomic-bricks.css --no-map -o dist/atomic-bricks.css",
+    "build": "postcss src/atomic-bricks.css --no-map -o dist/atomic-bricks.css",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -26,10 +26,12 @@
   "author": "Anton Staroverov",
   "license": "MIT",
   "devDependencies": {
+    "@anydigital/breakout-css": "^1.0.0-alpha.5",
     "postcss": "^8.4.33",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.1",
+    "postcss-preset-env": "^10.6.0"
   },
   "jsdelivr": "dist/atomic-bricks.css",
   "unpkg": "dist/atomic-bricks.css"
 }
-

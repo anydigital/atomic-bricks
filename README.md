@@ -36,6 +36,18 @@ html, body {
 
 This is automatically applied when you include the stylesheet.
 
+### Full Viewport Height
+
+Ensures the body element takes at least the full height of the viewport using dynamic viewport height for better mobile support:
+
+```css
+body {
+  min-height: 100dvh;
+}
+```
+
+This is automatically applied when you include the stylesheet.
+
 ### Breakout CSS
 
 Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities for breaking out images and figures beyond their container width. Use the `.breakout` class to allow elements to extend beyond their parent container:

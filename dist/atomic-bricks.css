@@ -25,18 +25,11 @@ body {
 }
 
 .breakout > img:not(does-not-exist):not(.does-not-exist),.breakout > picture:not(does-not-exist):not(.does-not-exist),.breakout > figure:not(does-not-exist):not(.does-not-exist),.breakout > canvas:not(does-not-exist):not(.does-not-exist),.breakout > audio:not(does-not-exist):not(.does-not-exist),.breakout > table:not(does-not-exist):not(.does-not-exist),.breakout > pre:not(does-not-exist):not(.does-not-exist),.breakout > iframe:not(does-not-exist):not(.does-not-exist),.breakout > object:not(does-not-exist):not(.does-not-exist),.breakout > embed:not(does-not-exist):not(.does-not-exist),.breakout > video:not(does-not-exist):not(.does-not-exist),.breakout > .breakout-item:not(does-not-exist),.breakout > .breakout-item-max:not(does-not-exist),.breakout > p > img:not(.does-not-exist),.breakout > p > picture:not(.does-not-exist),.breakout > p > figure:not(.does-not-exist),.breakout > p > canvas:not(.does-not-exist),.breakout > p > audio:not(.does-not-exist),.breakout > p > table:not(.does-not-exist),.breakout > p > pre:not(.does-not-exist),.breakout > p > iframe:not(.does-not-exist),.breakout > p > object:not(.does-not-exist),.breakout > p > embed:not(.does-not-exist),.breakout > p > video:not(.does-not-exist),.breakout > p > .breakout-item,.breakout > p > .breakout-item-max {
-      display: inline-block;
-      width: auto;
-      min-width: 100%;
+      width: -moz-fit-content;
+      width: fit-content;
       max-width: 125%;
-      transform: translateX(-50%);
       margin-left: 50%;
-    }
-
-/* Let inline blocks shrink to fit their content */
-
-.breakout > img:not(does-not-exist),.breakout > picture:not(does-not-exist),.breakout > figure:not(does-not-exist),.breakout > canvas:not(does-not-exist),.breakout > audio:not(does-not-exist),.breakout > p > img,.breakout > p > picture,.breakout > p > figure,.breakout > p > canvas,.breakout > p > audio {
-      min-width: auto;
+      transform: translateX(-50%);
     }
 
 /* Max out the width of the element */

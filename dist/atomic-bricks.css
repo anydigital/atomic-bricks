@@ -9,17 +9,30 @@ html, body {
   overflow-x: clip;
 }
 
-/* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
-
 body {
+  /* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
   min-height: 100dvh;
+
+  /* Enable hyphenation and font smoothing for better typography */
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Make the body a flex container with column layout; main fills space */
+  display: flex;
+  flex-direction: column;
 }
+
+body  > main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 
 .breakout {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-inline: 10%;
 
   /* Direct children, or wrapped in <p> for Markdown support */
 }
@@ -27,15 +40,16 @@ body {
 .breakout > img:not(does-not-exist):not(.does-not-exist),.breakout > picture:not(does-not-exist):not(.does-not-exist),.breakout > figure:not(does-not-exist):not(.does-not-exist),.breakout > canvas:not(does-not-exist):not(.does-not-exist),.breakout > audio:not(does-not-exist):not(.does-not-exist),.breakout > table:not(does-not-exist):not(.does-not-exist),.breakout > pre:not(does-not-exist):not(.does-not-exist),.breakout > iframe:not(does-not-exist):not(.does-not-exist),.breakout > object:not(does-not-exist):not(.does-not-exist),.breakout > embed:not(does-not-exist):not(.does-not-exist),.breakout > video:not(does-not-exist):not(.does-not-exist),.breakout > .breakout-item:not(does-not-exist),.breakout > .breakout-item-max:not(does-not-exist),.breakout > p > img:not(.does-not-exist),.breakout > p > picture:not(.does-not-exist),.breakout > p > figure:not(.does-not-exist),.breakout > p > canvas:not(.does-not-exist),.breakout > p > audio:not(.does-not-exist),.breakout > p > table:not(.does-not-exist),.breakout > p > pre:not(.does-not-exist),.breakout > p > iframe:not(.does-not-exist),.breakout > p > object:not(.does-not-exist),.breakout > p > embed:not(.does-not-exist),.breakout > p > video:not(.does-not-exist),.breakout > p > .breakout-item,.breakout > p > .breakout-item-max {
       width: -moz-fit-content;
       width: fit-content;
+      min-width: 100%;
       max-width: 125%;
       margin-left: 50%;
       transform: translateX(-50%);
     }
 
-/* Some elements don't know their best fit :) */
+/* Respect inline blocks' min-width */
 
-.breakout > table:not(does-not-exist):not(.does-not-exist),.breakout > pre:not(does-not-exist):not(.does-not-exist),.breakout > .breakout-item:not(does-not-exist),.breakout > p > table:not(.does-not-exist),.breakout > p > pre:not(.does-not-exist),.breakout > p > .breakout-item {
-      min-width: 80%;
+.breakout > img:not(does-not-exist),.breakout > picture:not(does-not-exist),.breakout > figure:not(does-not-exist),.breakout > canvas:not(does-not-exist),.breakout > audio:not(does-not-exist),.breakout > p > img,.breakout > p > picture,.breakout > p > figure,.breakout > p > canvas,.breakout > p > audio {
+      min-width: auto;
     }
 
 /* Max out the width of the element */

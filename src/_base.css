@@ -3,7 +3,21 @@ html, body {
   overflow-x: clip;
 }
 
-/* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
 body {
+  /* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
   min-height: 100dvh;
+
+  /* Enable hyphenation and font smoothing for better typography */
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Make the body a flex container with column layout; main fills space */
+  display: flex;
+  flex-direction: column;
+  > main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 }

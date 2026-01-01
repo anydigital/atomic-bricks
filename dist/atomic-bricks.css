@@ -32,6 +32,12 @@ body {
       transform: translateX(-50%);
     }
 
+/* Some elements don't know their best fit :) */
+
+.breakout > table:not(does-not-exist):not(.does-not-exist),.breakout > pre:not(does-not-exist):not(.does-not-exist),.breakout > .breakout-item:not(does-not-exist),.breakout > p > table:not(.does-not-exist),.breakout > p > pre:not(.does-not-exist),.breakout > p > .breakout-item {
+      min-width: 80%;
+    }
+
 /* Max out the width of the element */
 
 .breakout > .breakout-item-max:not(does-not-exist),.breakout > p > .breakout-item-max {

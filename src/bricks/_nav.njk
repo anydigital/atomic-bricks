@@ -1,0 +1,10 @@
+{% macro render(navPages, curPage) %}
+{# https://www.11ty.dev/docs/plugins/navigation/#bring-your-own-html-render-the-menu-items-manually #}
+<nav>
+  {%- for entry in navPages %}
+  <a href="{{ entry.url }}" {{ 'aria-current="page"' | safe if entry.url == curPage.url }}>
+    {{- entry.title -}}
+  </a>
+  {%- endfor %}
+</nav>
+{% endmacro %}

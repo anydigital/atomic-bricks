@@ -48,6 +48,44 @@ body {
 
 This is automatically applied when you include the stylesheet.
 
+### Typography Enhancements
+
+Improves text rendering and readability:
+
+```css
+body {
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+
+- Automatic hyphenation for better text flow
+- Font smoothing for cleaner text rendering across browsers
+
+This is automatically applied when you include the stylesheet.
+
+### Flexbox Layout
+
+Sets up a flexible column layout structure:
+
+```css
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+```
+
+The body becomes a flex container with column direction, and `main` elements automatically grow to fill available space. This is useful for creating sticky footers and full-height layouts.
+
+This is automatically applied when you include the stylesheet.
+
 ### Breakout CSS
 
 Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities for breaking out images and figures beyond their container width. Use the `.breakout` class to allow elements to extend beyond their parent container:

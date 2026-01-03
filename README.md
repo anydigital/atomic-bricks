@@ -65,6 +65,41 @@ body {
 
 This is automatically applied when you include the stylesheet.
 
+### Prose Styling
+
+The `.prose` class provides enhanced typography for article content and long-form text:
+
+**Links:**
+- Custom underline offset and thickness (1px default, 2px on hover)
+- Special handling for links containing `small`, `sup`, or `sub` elements
+
+**Headings:**
+- `h1` with `small`, `sup`, or `sub` elements get reduced font size (0.5em) and lighter weight
+- `h2` headings (without classes) get a full-width decorative bar above them
+- `h3` and `h4` headings (without classes) get a decorative gradient bar to the left
+
+**Tables:**
+- Tables are displayed as blocks with horizontal scrolling
+- On mobile (max-width: 767px), tables get horizontal padding
+- Table cells have consistent vertical padding
+- Workaround for widening columns using hidden `hr` elements
+- Support for headings in Markdown tables using `big` elements
+
+**Blockquotes:**
+- Lighter font weight (300)
+- Adjacent `figcaption` elements are styled with italic text, right alignment, and an em dash prefix
+
+**Usage:**
+
+```html
+<article class="prose">
+  <h1>Article Title</h1>
+  <p>Your content here...</p>
+</article>
+```
+
+This is automatically included when you import the stylesheet.
+
 ### Flexbox Layout
 
 Sets up a flexible column layout structure:

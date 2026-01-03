@@ -98,6 +98,90 @@ Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities fo
 
 The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. This is automatically included when you import the stylesheet.
 
+## Bricks (Template Components)
+
+The package includes reusable Nunjucks template macros in the `src/bricks/` directory. These are useful for common web development patterns.
+
+### Navigation (`_nav.njk`)
+
+A navigation macro that renders a list of navigation links with proper accessibility attributes.
+
+**Parameters:**
+- `navPages` - Array of navigation page objects with `url` and `title` properties
+- `currentPageUrl` - The URL of the current page (used to set `aria-current="page"`)
+
+**Usage:**
+
+```njk
+{% from "bricks/_nav.njk" import render %}
+{{ render(navPages, page.url) }}
+```
+
+**Example:**
+
+```njk
+{% set navPages = [
+  { url: '/', title: 'Home' },
+  { url: '/about', title: 'About' },
+  { url: '/contact', title: 'Contact' }
+] %}
+{% from "bricks/_nav.njk" import render %}
+{{ render(navPages, '/about') }}
+```
+
+**Output:**
+
+```html
+<nav>
+  <a href="/">Home</a>
+  <a href="/about" aria-current="page">About</a>
+  <a href="/contact">Contact</a>
+</nav>
+```
+
+**Compatibility:** Compatible with [Eleventy Navigation plugin](https://www.11ty.dev/docs/plugins/navigation/#bring-your-own-html-render-the-menu-items-manually).
+
+### Google Tag Manager (`_gtm.njk`)
+
+A macro for embedding Google Tag Manager scripts in your pages.
+
+**Parameters:**
+- `gtmId` - Your Google Tag Manager container ID (e.g., `GTM-XXXXXXX`)
+- `bodyFallback` - Boolean flag (default: `false`). When `false`, renders the script tag for the `<head>`. When `true`, renders the noscript fallback for the `<body>`.
+
+**Usage:**
+
+In your base template's `<head>`:
+
+```njk
+{% from "bricks/_gtm.njk" import render %}
+{{ render('GTM-XXXXXXX') }}
+```
+
+In your base template's `<body>` (right after the opening tag):
+
+```njk
+{% from "bricks/_gtm.njk" import render %}
+{{ render('GTM-XXXXXXX', true) }}
+```
+
+**Example:**
+
+```njk
+<!DOCTYPE html>
+<html>
+<head>
+  {% from "bricks/_gtm.njk" import render %}
+  {{ render('GTM-XXXXXXX') }}
+</head>
+<body>
+  {% from "bricks/_gtm.njk" import render %}
+  {{ render('GTM-XXXXXXX', true) }}
+  <!-- Your content -->
+</body>
+</html>
+```
+
 ## License
 
 MIT

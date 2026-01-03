@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "postcss src/atomic-bricks.css --no-map -o dist/atomic-bricks.css",
+    "dev": "postcss src/atomic-bricks.css -o dist/atomic-bricks.css --watch",
     "prepublishOnly": "npm run build"
   },
   "repository": {

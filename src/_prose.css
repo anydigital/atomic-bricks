@@ -1,0 +1,40 @@
+.prose {
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]) {
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: whitesmoke;
+    }
+  }
+  h2:not([class]) {
+    margin-top: 2em;
+    &::before {
+      width: 100vw;
+        left: 50%;
+      height: 0.4em;
+        top: -1em;
+        transform: translateX(-50%);
+    }
+  }
+  h3:not([class]),
+  h4:not([class]) {
+    &::before {
+      width: 10em;
+        right: 100%;
+        margin-right: 0.5em;
+      height: 0.3em;
+        top: 50%;
+        transform: translateY(-50%);
+      background: linear-gradient(to left, gainsboro, whitesmoke 10%, transparent);
+    }
+  }
+  h4:not([class]) {
+    &::before {
+      height: 0.2em;
+    }
+  }
+}

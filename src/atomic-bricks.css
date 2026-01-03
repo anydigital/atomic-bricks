@@ -4,4 +4,5 @@
  */
 
 @import "_base";
+@import "_prose";
 @import "@anydigital/breakout-css";

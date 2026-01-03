@@ -1,6 +1,6 @@
 {
   "name": "@anydigital/atomic-bricks",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Framework-agnostic CSS utility helpers for modern web development",
   "main": "dist/atomic-bricks.css",
   "style": "dist/atomic-bricks.css",
@@ -26,7 +26,7 @@
   "author": "Anton Staroverov",
   "license": "MIT",
   "devDependencies": {
-    "@anydigital/breakout-css": "^1.0.0-alpha.6",
+    "@anydigital/breakout-css": "^1.0.0-alpha.7",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.1",

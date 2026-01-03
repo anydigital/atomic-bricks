@@ -29,6 +29,26 @@ body  > main {
     flex-grow: 1;
   }
 
+.prose a {
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 1px;
+  }
+
+.prose a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+.prose a small,.prose a sup,.prose a sub {
+      font-weight: 300;
+      /* Workaround to prevent underline */
+      display: inline-block;
+    }
+
+.prose h1 small,.prose h1 sup,.prose h1 sub {
+      font-size: 0.5em;
+      font-weight: 300;
+    }
+
 .prose h2:not([class]),.prose h3:not([class]),.prose h4:not([class]) {
     position: relative;
   }
@@ -37,21 +57,21 @@ body  > main {
       content: '';
       display: block;
       position: absolute;
-      background-color: whitesmoke;
+      background-color: rgba(0,0,0,5%);
     }
 
 .prose h3:not([class])::before {
       content: '';
       display: block;
       position: absolute;
-      background-color: whitesmoke;
+      background-color: rgba(0,0,0,5%);
     }
 
 .prose h4:not([class])::before {
       content: '';
       display: block;
       position: absolute;
-      background-color: whitesmoke;
+      background-color: rgba(0,0,0,5%);
     }
 
 .prose h2:not([class]) {
@@ -73,7 +93,7 @@ body  > main {
       height: 0.3em;
         top: 50%;
         transform: translateY(-50%);
-      background: linear-gradient(to left, gainsboro, whitesmoke 10%, transparent);
+      background: linear-gradient(to left, rgba(0,0,0,10%), rgba(0,0,0,5%) 10%, transparent);
     }
 
 .prose h4:not([class])::before {
@@ -83,12 +103,59 @@ body  > main {
       height: 0.3em;
         top: 50%;
         transform: translateY(-50%);
-      background: linear-gradient(to left, gainsboro, whitesmoke 10%, transparent);
+      background: linear-gradient(to left, rgba(0,0,0,10%), rgba(0,0,0,5%) 10%, transparent);
     }
 
 .prose h4:not([class])::before {
       height: 0.2em;
     }
+
+.prose table {
+    display: block;
+    overflow-x: auto;
+  }
+
+@media (max-width: 767px) {
+
+.prose table {
+      padding-inline: 1.5em;
+  }
+    }
+
+.prose th,.prose td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* Workaround to widen particular columns */
+  }
+
+.prose th hr,.prose td hr {
+      min-width: 25ch;
+      margin: 0;
+      visibility: hidden;
+    }
+
+/* Workaround for headings in Markdown tables */
+
+.prose th big,.prose td big {
+      font-weight: bold;
+      font-style: italic;
+    }
+
+.prose blockquote {
+    font-weight: 300;
+  }
+
+.prose blockquote  + figcaption {
+      margin-top: -1em;
+      text-align: right;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+.prose blockquote + figcaption::before {
+        content: '—';
+        margin-right: 0.25em;
+      }
 
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 

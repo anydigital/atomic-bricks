@@ -1,17 +1,40 @@
 .prose {
+  a {
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 1px;
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    small, sup, sub {
+      font-weight: 300;
+      /* Workaround to prevent underline */
+      display: inline-block;
+    }
+  }
+
+  h1 {
+    small, sup, sub {
+      font-size: 0.5em;
+      font-weight: 300;
+    }
+  }
+
   h2:not([class]),
   h3:not([class]),
   h4:not([class]) {
     position: relative;
+
     &::before {
       content: '';
       display: block;
       position: absolute;
-      background-color: whitesmoke;
+      background-color: rgba(0,0,0,5%);
     }
   }
   h2:not([class]) {
     margin-top: 2em;
+
     &::before {
       width: 100vw;
         left: 50%;
@@ -29,7 +52,7 @@
       height: 0.3em;
         top: 50%;
         transform: translateY(-50%);
-      background: linear-gradient(to left, gainsboro, whitesmoke 10%, transparent);
+      background: linear-gradient(to left, rgba(0,0,0,10%), rgba(0,0,0,5%) 10%, transparent);
     }
   }
   h4:not([class]) {
@@ -37,4 +60,43 @@
       height: 0.2em;
     }
   }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    @media (max-width: 767px) {
+      padding-inline: 1.5em;
+    }
+  }
+  th, td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* Workaround to widen particular columns */
+    hr {
+      min-width: 25ch;
+      margin: 0;
+      visibility: hidden;
+    }
+    /* Workaround for headings in Markdown tables */
+    big {
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+
+  blockquote {
+    font-weight: 300;
+
+    + figcaption {
+      margin-top: -1em;
+      text-align: right;
+      font-style: italic;
+      font-weight: 300;
+
+      &::before {
+        content: '—';
+        margin-right: 0.25em;
+      }
+    }
+  }  
 }

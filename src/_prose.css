@@ -1,4 +1,8 @@
 .prose {
+  /* Container-like behavior with padding and auto margins */
+  padding: 1rem;
+  margin-inline: auto;
+
   a {
     text-underline-offset: 0.1em;
     text-decoration-thickness: 1px;

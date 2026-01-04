@@ -29,6 +29,12 @@ body  > main {
     flex-grow: 1;
   }
 
+.prose {
+  /* Container-like behavior with padding and auto margins */
+  padding: 1rem;
+  margin-inline: auto;  
+}
+
 .prose a {
     text-underline-offset: 0.1em;
     text-decoration-thickness: 1px;

@@ -1,7 +1,7 @@
-{% macro render(navPages, currentPageUrl) %}
+{% macro render(navPages, curPageUrl) %}
 <nav>
   {%- for entry in navPages %}
-  <a href="{{ entry.url }}" {{ 'aria-current="page"' | safe if entry.url == currentPageUrl }}>
+  <a href="{{ entry.url }}" {{ 'aria-current="page"' | safe if entry.url == curPageUrl }}>
     {{- entry.title -}}
   </a>
   {%- endfor %}

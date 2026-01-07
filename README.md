@@ -7,7 +7,7 @@ Framework-agnostic CSS utility helpers for modern web development.
 ### Via CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/atomic-bricks@1/dist/atomic-bricks.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/atomic-bricks@1/dist/atomic-bricks.css">
 ```
 
 ### Via npm
@@ -67,27 +67,32 @@ This is automatically applied when you include the stylesheet.
 
 ### Prose Styling
 
-The `.prose` class provides enhanced typography for article content and long-form text:
+The `.prose` class provides enhanced typography for article content and long-form text with container-like behavior:
+
+**Container:**
+- Full width with `1rem` padding
+- Centered with automatic inline margins
 
 **Links:**
-- Custom underline offset and thickness (1px default, 2px on hover)
-- Special handling for links containing `small`, `sup`, or `sub` elements
+- Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
+- Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
 
 **Headings:**
-- `h1` with `small`, `sup`, or `sub` elements get reduced font size (0.5em) and lighter weight
-- `h2` headings (without classes) get a full-width decorative bar above them
-- `h3` and `h4` headings (without classes) get a decorative gradient bar to the left
+- `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`)
+- `h2` headings (without classes) get a full-width decorative bar above them (`0.4em` height, positioned `1em` above, with `2em` top margin)
+- `h3` headings (without classes) get a decorative gradient bar to the left (`10em` width, `0.3em` height, fading from 10% to 5% to transparent opacity)
+- `h4` headings (without classes) get a similar decorative gradient bar but thinner (`0.2em` height)
 
 **Tables:**
 - Tables are displayed as blocks with horizontal scrolling
-- On mobile (max-width: 767px), tables get horizontal padding
-- Table cells have consistent vertical padding
-- Workaround for widening columns using hidden `hr` elements
-- Support for headings in Markdown tables using `big` elements
+- On mobile (max-width: 767px), tables get `1.5em` horizontal padding
+- Table cells have `1em` vertical padding (top and bottom)
+- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`)
+- Support for headings in Markdown tables using `big` elements (styled as bold italic)
 
 **Blockquotes:**
-- Lighter font weight (300)
-- Adjacent `figcaption` elements are styled with italic text, right alignment, and an em dash prefix
+- Lighter font weight (`300`)
+- Adjacent `figcaption` elements are styled with italic text, right alignment, lighter weight (`300`), negative top margin (`-1em`), and an em dash prefix
 
 **Usage:**
 
@@ -137,13 +142,43 @@ The breakout utilities support images, pictures, figures, canvas, audio, video, 
 
 The package includes reusable Nunjucks template macros in the `src/bricks/` directory. These are useful for common web development patterns.
 
+### Base HTML Template (`__html.njk`)
+
+A base HTML template that provides the essential document structure with built-in support for modern web best practices.
+
+**Features:**
+- HTML5 DOCTYPE with language attribute
+- UTF-8 charset and comprehensive viewport meta tag with `viewport-fit=cover` for notched devices
+- Dynamic title generation with site title suffix
+- Favicon link
+- CSS dependencies management via `bricksDependencies` filter
+- Google Tag Manager integration (conditional on production environment)
+- Body content block for template extension
+
+**Usage:**
+
+```njk
+{% extends site.bricks ~ '__html.njk' %}
+
+{% block body %}
+  <!-- Your page content -->
+{% endblock %}
+```
+
+**Required Variables:**
+- `title` - Page title (optional, will be stripped of HTML tags)
+- `site.title` - Site title for the title suffix
+- `site.bricks` - Path to the bricks directory
+- `site.gtmId` - Google Tag Manager ID (optional)
+- `site.isProd` - Boolean flag for production environment (optional)
+
 ### Navigation (`_nav.njk`)
 
 A navigation macro that renders a list of navigation links with proper accessibility attributes.
 
 **Parameters:**
 - `navPages` - Array of navigation page objects with `url` and `title` properties
-- `currentPageUrl` - The URL of the current page (used to set `aria-current="page"`)
+- `curPageUrl` - The URL of the current page (used to set `aria-current="page"`)
 
 **Usage:**
 
@@ -189,15 +224,14 @@ A macro for embedding Google Tag Manager scripts in your pages.
 In your base template's `<head>`:
 
 ```njk
-{% from "bricks/_gtm.njk" import render %}
-{{ render('GTM-XXXXXXX') }}
+{% import "bricks/_gtm.njk" as gtm %}
+{{ gtm.render(site.gtmId) }}
 ```
 
 In your base template's `<body>` (right after the opening tag):
 
 ```njk
-{% from "bricks/_gtm.njk" import render %}
-{{ render('GTM-XXXXXXX', true) }}
+{{ gtm.render(site.gtmId, bodyFallback=true) }}
 ```
 
 **Example:**
@@ -206,12 +240,11 @@ In your base template's `<body>` (right after the opening tag):
 <!DOCTYPE html>
 <html>
 <head>
-  {% from "bricks/_gtm.njk" import render %}
-  {{ render('GTM-XXXXXXX') }}
+  {% import "bricks/_gtm.njk" as gtm %}
+  {{ gtm.render('GTM-XXXXXXX') }}
 </head>
 <body>
-  {% from "bricks/_gtm.njk" import render %}
-  {{ render('GTM-XXXXXXX', true) }}
+  {{ gtm.render('GTM-XXXXXXX', bodyFallback=true) }}
   <!-- Your content -->
 </body>
 </html>

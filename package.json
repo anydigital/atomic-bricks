@@ -1,6 +1,6 @@
 {
   "name": "@anydigital/atomic-bricks",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "Framework-agnostic CSS utility helpers for modern web development",
   "main": "dist/atomic-bricks.css",
   "style": "dist/atomic-bricks.css",

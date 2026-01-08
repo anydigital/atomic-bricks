@@ -1,6 +1,6 @@
-# `bricks`
+# *Any*`bricks`
 
-Framework-agnostic CSS utility helpers for modern web development.
+Framework-agnostic CSS utilities and single-file Nunjucks 'bricks' for modern web development.
 
 ## Installation
 

@@ -1,12 +1,12 @@
 {
-  "name": "@anydigital/atomic-bricks",
+  "name": "@anydigital/bricks",
   "version": "1.0.0-alpha.8",
   "description": "Framework-agnostic CSS utility helpers for modern web development",
-  "main": "dist/atomic-bricks.css",
-  "style": "dist/atomic-bricks.css",
+  "main": "dist/bricks.css",
+  "style": "dist/bricks.css",
   "files": [
     "dist",
-    "src"
+    "bricks"
   ],
   "scripts": {
     "postcss": "postcss bricks/bricks.css -o dist/bricks.css",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anydigital/atomic-bricks.git"
+    "url": "git+https://github.com/anydigital/bricks.git"
   },
   "keywords": [
     "css",
@@ -34,6 +34,6 @@
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.6.0"
   },
-  "jsdelivr": "dist/atomic-bricks.css",
-  "unpkg": "dist/atomic-bricks.css"
+  "jsdelivr": "dist/bricks.css",
+  "unpkg": "dist/bricks.css"
 }

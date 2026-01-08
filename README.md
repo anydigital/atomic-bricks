@@ -1,4 +1,4 @@
-# `atomic-bricks`
+# `bricks`
 
 Framework-agnostic CSS utility helpers for modern web development.
 
@@ -7,19 +7,19 @@ Framework-agnostic CSS utility helpers for modern web development.
 ### Via CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/atomic-bricks@1/dist/atomic-bricks.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/bricks@1/dist/bricks.css">
 ```
 
 ### Via npm
 
 ```sh
-npm install @anydigital/atomic-bricks
+npm install @anydigital/bricks
 ```
 
 Then import in your CSS:
 
 ```css
-@import '@anydigital/atomic-bricks';
+@import '@anydigital/bricks';
 ```
 
 ## Features
@@ -140,7 +140,7 @@ The breakout utilities support images, pictures, figures, canvas, audio, video, 
 
 ## Bricks (Template Components)
 
-The package includes reusable Nunjucks template macros in the `src/bricks/` directory. These are useful for common web development patterns.
+The package includes reusable Nunjucks template macros in the `bricks/` directory. These are useful for common web development patterns.
 
 ### Base HTML Template (`__html.njk`)
 

@@ -151,14 +151,17 @@ A base HTML template that provides the essential document structure with built-i
 - UTF-8 charset and comprehensive viewport meta tag with `viewport-fit=cover` for notched devices
 - Dynamic title generation with site title suffix
 - Favicon link
-- CSS dependencies management via `bricksDependencies` filter
 - Google Tag Manager integration (conditional on production environment)
-- Body content block for template extension
+- Head and body content blocks for template extension
 
 **Usage:**
 
 ```njk
-{% extends site.bricks ~ '__html.njk' %}
+{% extends 'bricks/__html.njk' %}
+
+{% block head %}
+  <!-- Additional head elements (optional) -->
+{% endblock %}
 
 {% block body %}
   <!-- Your page content -->
@@ -168,9 +171,9 @@ A base HTML template that provides the essential document structure with built-i
 **Required Variables:**
 - `title` - Page title (optional, will be stripped of HTML tags)
 - `site.title` - Site title for the title suffix
-- `site.bricks` - Path to the bricks directory
 - `site.gtmId` - Google Tag Manager ID (optional)
 - `site.isProd` - Boolean flag for production environment (optional)
+- `fromBricks` - Path to the bricks directory (optional, defaults to `'bricks/'`)
 
 ### Navigation (`_nav.njk`)
 

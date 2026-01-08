@@ -1,3 +1,4 @@
+{%- set fromBricks = fromBricks | default('bricks/') -%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,17 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
   <title>{{ title | string | striptags }}{{ ' — ' if title }}{{ site.title }}</title>
   <link rel="icon" href="/favicon.ico">
-  {# @TODO: add fallback #}
-  {% bricksDependencies [
-    'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/css/all.min.css',
-    'https://cdn.jsdelivr.net/npm/@anydigital/bricks@^1.0.0-alpha/dist/bricks.min.css',
-    '/styles.css'
-  ] %}
-  {% import site.bricks ~ '_gtm.njk' as gtm %}
-  {{ gtm.render(site.gtmId) if site.isProd }}
+  {% block head %}{% endblock %}
+  {% import fromBricks ~ '_gtm.njk' as gtm %}
+  {{ gtm.render(site.gtmId) if site.gtmId and site.isProd }}
 </head>
 <body>
-  {{ gtm.render(site.gtmId, bodyFallback=true) if site.isProd }}
+  {{ gtm.render(site.gtmId, bodyFallback=true) if site.gtmId and site.isProd }}
   {% block body %}{% endblock %}
 </body>
 </html>

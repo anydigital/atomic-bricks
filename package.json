@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "postcss": "postcss src/atomic-bricks.css -o dist/atomic-bricks.css",
+    "postcss": "postcss bricks/bricks.css -o dist/bricks.css",
     "build": "npm run postcss -- --no-map",
     "start": "npm run postcss -- --watch",
     "prepublishOnly": "npm run build"

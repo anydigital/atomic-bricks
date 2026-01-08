@@ -3,6 +3,6 @@
  * Framework-agnostic CSS utility helpers
  */
 
-@import "_base";
+@import "__html";
 @import "_prose";
 @import "@anydigital/breakout-css";

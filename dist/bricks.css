@@ -24,8 +24,6 @@ body {
 }
 
 body  > main {
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
   }
 
@@ -39,7 +37,12 @@ body  > main {
 .prose a {
     text-underline-offset: 0.1em;
     text-decoration-thickness: 1px;
+    /* Don't underline links that point to anchors */
   }
+
+.prose a[href^="#"] {
+      text-decoration: none;
+    }
 
 .prose a:hover {
       text-decoration-thickness: 2px;

@@ -7,6 +7,10 @@
   a {
     text-underline-offset: 0.1em;
     text-decoration-thickness: 1px;
+    /* Don't underline links that point to anchors */
+    &[href^="#"] {
+      text-decoration: none;
+    }
     &:hover {
       text-decoration-thickness: 2px;
     }

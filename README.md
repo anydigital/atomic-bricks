@@ -75,6 +75,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 **Links:**
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
+- Anchor links (starting with `#`) have no text decoration
 - Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
 
 **Headings:**
@@ -116,8 +117,6 @@ body {
 }
 
 body > main {
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
 }
 ```

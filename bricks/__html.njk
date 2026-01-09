@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-  <title>{{ title | string | striptags }}{{ ' — ' if title }}{{ site.title }}</title>
+  <title>{{ title | striptags ~ ' | ' if title }}{{ site.title }}</title>
   <link rel="icon" href="/favicon.ico">
   {% block head %}{% endblock %}
   {% import fromBricks ~ '_gtm.njk' as gtm %}

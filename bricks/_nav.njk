@@ -2,7 +2,7 @@
 <nav>
   {%- for entry in navPages %}
   <a href="{{ entry.url }}" {{ 'aria-current="page"' | safe if entry.url == curPageUrl }}>
-    {{- entry.title -}}
+    {{- entry.title | safe -}}
   </a>
   {%- endfor %}
 </nav>

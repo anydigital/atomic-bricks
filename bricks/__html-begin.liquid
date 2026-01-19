@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
-    <title>{{ title | strip_html | append: ' | ' | if: title }}{{ site.title }}</title>
-    <link rel="icon" href="/favicon.ico" />
-    {{ content_for_header }}
-  </head>
-  <body>
+<!doctype html>
+{% # auto-formatting support %}
+{% if true %}<html lang="{{ site.lang | default: 'en' }}">{% endif %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <title>
+    {{- title | strip_html | append: ' | ' | if: title -}}
+    {{- site.title -}}
+  </title>
+  <link rel="icon" href="/favicon.ico">
+
+  {% # styles %}
+  {%- for href in site.styles %}
+    <link rel="stylesheet" href="{{ href }}">
+  {%- endfor %}
+  <style>
+    {{ site.inlineStyles | join: '\n' }}
+  </style>
+
+  {% # scripts %}
+  {%- for src in site.scripts %}
+    <script src="{{ src }}" defer></script>
+  {%- endfor %}
+  <script>
+    {{ site.inlineScripts | join: '\n' }}
+  </script>
+
+  {% # custom %}
+  {{ content_for_header }}
+</head>
+
+{% # auto-formatting support %}
+{% if true %}<body>{% endif %}

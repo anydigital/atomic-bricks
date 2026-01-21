@@ -25,9 +25,17 @@
 
     /* Helper to insert icons in links */
     i {
+      height: 1em;
+      vertical-align: -10%;
+      margin-right: 0.25em;
       font-style: normal;
       /* Workaround to prevent underline */
       display: inline-block;
+
+      img {
+        height: 100%;
+        margin: 0 !important;
+      }
     }
   }
 

@@ -1,13 +1,13 @@
 # *Any*bricks
 
-Framework-agnostic CSS utilities and single-file Nunjucks 'bricks' for modern web development.
+Framework-agnostic CSS utilities and single-file Liquid 'bricks' for modern web development.
 
 ## Installation
 
 ### Via CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/bricks@1/dist/bricks.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@anydigital/bricks@1/dist/bricks.css" />
 ```
 
 ### Via npm
@@ -19,7 +19,7 @@ npm install @anydigital/bricks
 Then import in your CSS:
 
 ```css
-@import '@anydigital/bricks';
+@import "@anydigital/bricks";
 ```
 
 ## Features
@@ -29,7 +29,8 @@ Then import in your CSS:
 Prevents horizontal overflow and scrolling on the entire page:
 
 ```css
-html, body {
+html,
+body {
   overflow-x: clip;
 }
 ```
@@ -70,21 +71,25 @@ This is automatically applied when you include the stylesheet.
 The `.prose` class provides enhanced typography for article content and long-form text with container-like behavior:
 
 **Container:**
+
 - Full width with `1rem` padding
 - Centered with automatic inline margins
 
 **Links:**
+
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
 - Anchor links (starting with `#`) have no text decoration
 - Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
 
 **Headings:**
+
 - `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`)
 - `h2` headings (without classes) get a full-width decorative bar above them (`0.4em` height, positioned `1em` above, with `2em` top margin)
 - `h3` headings (without classes) get a decorative gradient bar to the left (`10em` width, `0.3em` height, fading from 10% to 5% to transparent opacity)
 - `h4` headings (without classes) get a similar decorative gradient bar but thinner (`0.2em` height)
 
 **Tables:**
+
 - Tables are displayed as blocks with horizontal scrolling
 - On mobile (max-width: 767px), tables get `1.5em` horizontal padding
 - Table cells have `1em` vertical padding (top and bottom)
@@ -92,6 +97,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Support for headings in Markdown tables using `big` elements (styled as bold italic)
 
 **Blockquotes:**
+
 - Lighter font weight (`300`)
 - Adjacent `figcaption` elements are styled with italic text, right alignment, lighter weight (`300`), negative top margin (`-1em`), and an em dash prefix
 
@@ -131,7 +137,7 @@ Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities fo
 
 ```html
 <div class="breakout">
-  <img src="image.jpg" alt="Description">
+  <img src="image.jpg" alt="Description" />
 </div>
 ```
 
@@ -139,66 +145,68 @@ The breakout utilities support images, pictures, figures, canvas, audio, video, 
 
 ## Bricks (Template Components)
 
-The package includes reusable Nunjucks template macros in the `bricks/` directory. These are useful for common web development patterns.
+The package includes reusable Liquid templates in the `bricks/` directory. These are useful for common web development patterns.
 
-### Base HTML Template (`__html.njk`)
+### Base HTML Template (`__html-begin.liquid` and `__html-end.liquid`)
 
-A base HTML template that provides the essential document structure with built-in support for modern web best practices.
+Base HTML templates that provide the essential document structure with built-in support for modern web best practices. Split into begin and end files to wrap around your content.
 
 **Features:**
-- HTML5 DOCTYPE with language attribute
+
+- HTML5 DOCTYPE with language attribute (defaults to `en`, configurable via `site.lang`)
 - UTF-8 charset and comprehensive viewport meta tag with `viewport-fit=cover` for notched devices
 - Dynamic title generation with site title suffix
 - Favicon link
+- Automatic stylesheet linking from `site.styles` array
+- Inline styles from `site.inline_styles` array
+- Automatic script loading from `site.scripts` array (with `defer` attribute)
+- Inline module scripts from `site.inline_scripts` array
+- Custom header content via `content_for_header`
 - Google Tag Manager integration (conditional on production environment)
-- Head and body content blocks for template extension
 
 **Usage:**
 
-```njk
-{% extends 'bricks/__html.njk' %}
+```liquid
+{% render 'bricks/__html-begin', site: site, title: title, content_for_header: content_for_header %}
 
-{% block head %}
-  <!-- Additional head elements (optional) -->
-{% endblock %}
+<!-- Your page content -->
 
-{% block body %}
-  <!-- Your page content -->
-{% endblock %}
+{% render 'bricks/__html-end' %}
 ```
 
-**Required Variables:**
+**Variables:**
+
 - `title` - Page title (optional, will be stripped of HTML tags)
 - `site.title` - Site title for the title suffix
-- `site.gtmId` - Google Tag Manager ID (optional)
-- `site.isProd` - Boolean flag for production environment (optional)
-- `fromBricks` - Path to the bricks directory (optional, defaults to `'bricks/'`)
+- `site.lang` - Language code (optional, defaults to `'en'`)
+- `site.styles` - Array of stylesheet URLs (optional)
+- `site.inline_styles` - Array of inline CSS strings (optional)
+- `site.scripts` - Array of script URLs (optional)
+- `site.inline_scripts` - Array of inline JavaScript strings (optional)
+- `content_for_header` - Custom HTML for the head section (optional)
+- `site.gtm_id` - Google Tag Manager ID (optional)
+- `site.prod` - Boolean flag for production environment (optional)
 
-### Navigation (`_nav.njk`)
+### Navigation (`_nav.liquid`)
 
-A navigation macro that renders a list of navigation links with proper accessibility attributes.
+A navigation template that renders a list of navigation links with proper accessibility attributes.
 
 **Parameters:**
-- `navPages` - Array of navigation page objects with `url` and `title` properties
-- `curPageUrl` - The URL of the current page (used to set `aria-current="page"`)
+
+- `nav_pages` - Array of navigation page objects with `url` and `title` properties
+- `current_url` - The URL of the current page (used to set `aria-current="page"`)
 
 **Usage:**
 
-```njk
-{% from "bricks/_nav.njk" import render %}
-{{ render(navPages, page.url) }}
+```liquid
+{% render 'bricks/_nav', nav_pages: navPages, current_url: page.url %}
 ```
 
 **Example:**
 
-```njk
-{% set navPages = [
-  { url: '/', title: 'Home' },
-  { url: '/about', title: 'About' },
-  { url: '/contact', title: 'Contact' }
-] %}
-{% from "bricks/_nav.njk" import render %}
-{{ render(navPages, '/about') }}
+```liquid
+{% assign navPages = site.pages | where: "nav", true %}
+{% render 'bricks/_nav', nav_pages: navPages, current_url: page.url %}
 ```
 
 **Output:**
@@ -213,46 +221,47 @@ A navigation macro that renders a list of navigation links with proper accessibi
 
 **Compatibility:** Compatible with [Eleventy Navigation plugin](https://www.11ty.dev/docs/plugins/navigation/#bring-your-own-html-render-the-menu-items-manually).
 
-### Google Tag Manager (`_gtm.njk`)
+### Google Tag Manager (`_gtm.liquid`)
 
-A macro for embedding Google Tag Manager scripts in your pages.
+A template for embedding Google Tag Manager scripts in your pages.
 
 **Parameters:**
-- `gtmId` - Your Google Tag Manager container ID (e.g., `GTM-XXXXXXX`)
-- `bodyFallback` - Boolean flag (default: `false`). When `false`, renders the script tag for the `<head>`. When `true`, renders the noscript fallback for the `<body>`.
+
+- `site.gtm_id` - Your Google Tag Manager container ID (e.g., `GTM-XXXXXXX`)
+- `site.prod` - Boolean flag to enable GTM only in production
+- `for_body` - Boolean flag (default: `false`). When `false`, renders the script tag for the `<head>`. When `true`, renders the noscript fallback for the `<body>`.
 
 **Usage:**
 
 In your base template's `<head>`:
 
-```njk
-{% import "bricks/_gtm.njk" as gtm %}
-{{ gtm.render(site.gtmId) }}
+```liquid
+{% render 'bricks/_gtm', site: site %}
 ```
 
 In your base template's `<body>` (right after the opening tag):
 
-```njk
-{{ gtm.render(site.gtmId, bodyFallback=true) }}
+```liquid
+{% render 'bricks/_gtm', site: site, for_body: true %}
 ```
 
 **Example:**
 
-```njk
+```liquid
 <!DOCTYPE html>
 <html>
 <head>
-  {% import "bricks/_gtm.njk" as gtm %}
-  {{ gtm.render('GTM-XXXXXXX') }}
+  {% render 'bricks/_gtm', site: site %}
 </head>
 <body>
-  {{ gtm.render('GTM-XXXXXXX', bodyFallback=true) }}
+  {% render 'bricks/_gtm', site: site, for_body: true %}
   <!-- Your content -->
 </body>
 </html>
 ```
 
+**Note:** The GTM script is only rendered when both `site.prod` is `true` and `site.gtm_id` is set.
+
 ## License
 
 MIT
-

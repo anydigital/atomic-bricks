@@ -1,5 +1,5 @@
 <!doctype html>
-{% # auto-formatting support %}
+{% # if-true trick not to break auto-formatting %}
 {% if true %}<html lang="{{ site.lang | default: 'en' }}">{% endif %}
 
 <head>
@@ -16,20 +16,25 @@
     <link rel="stylesheet" href="{{ href }}">
   {%- endfor %}
   <style>
-    {{ site.inlineStyles | join: '\n' }}
+    {{ site.inline_styles | join: '\n' }}
   </style>
 
   {% # scripts %}
   {%- for src in site.scripts %}
     <script src="{{ src }}" defer></script>
   {%- endfor %}
-  <script>
-    {{ site.inlineScripts | join: '\n' }}
+  <script type="module">
+    {{ site.inline_scripts | join: '\n' }}
   </script>
 
   {% # custom %}
   {{ content_for_header }}
+
+  {% render './_gtm', site: site %}
 </head>
 
-{% # auto-formatting support %}
-{% if true %}<body>{% endif %}
+{% # if-true trick not to break auto-formatting %}
+{% if true %}
+  <body>
+    {% render './_gtm', site: site, for_body: true %}
+{% endif %}

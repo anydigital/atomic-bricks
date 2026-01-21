@@ -5,7 +5,8 @@
 
 /* Prevent horizontal overflow and scrolling, modern way */
 
-html, body {
+html,
+body {
   overflow-x: clip;
 }
 
@@ -31,7 +32,7 @@ body  > main {
   /* Container-like behavior with padding and auto margins */
   width: 100%;
   padding: 1rem;
-  margin-inline: auto;  
+  margin-inline: auto;
 }
 
 .prose a {
@@ -54,6 +55,14 @@ body  > main {
       display: inline-block;
     }
 
+/* Helper to insert icons in links */
+
+.prose a i {
+      font-style: normal;
+      /* Workaround to prevent underline */
+      display: inline-block;
+    }
+
 .prose h1 small,.prose h1 sup,.prose h1 sub {
       font-size: 0.5em;
       font-weight: 300;
@@ -64,24 +73,24 @@ body  > main {
   }
 
 .prose h2:not([class])::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
-      background-color: rgba(0,0,0,5%);
+      background-color: rgba(0, 0, 0, 5%);
     }
 
 .prose h3:not([class])::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
-      background-color: rgba(0,0,0,5%);
+      background-color: rgba(0, 0, 0, 5%);
     }
 
 .prose h4:not([class])::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
-      background-color: rgba(0,0,0,5%);
+      background-color: rgba(0, 0, 0, 5%);
     }
 
 .prose h2:not([class]) {
@@ -90,30 +99,30 @@ body  > main {
 
 .prose h2:not([class])::before {
       width: 100vw;
-        left: 50%;
+      left: 50%;
       height: 0.4em;
-        top: -1em;
-        transform: translateX(-50%);
+      top: -1em;
+      transform: translateX(-50%);
     }
 
 .prose h3:not([class])::before {
       width: 10em;
-        right: 100%;
-        margin-right: 0.5em;
+      right: 100%;
+      margin-right: 0.5em;
       height: 0.3em;
-        top: 50%;
-        transform: translateY(-50%);
-      background: linear-gradient(to left, rgba(0,0,0,10%), rgba(0,0,0,5%) 10%, transparent);
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(to left, rgba(0, 0, 0, 10%), rgba(0, 0, 0, 5%) 10%, transparent);
     }
 
 .prose h4:not([class])::before {
       width: 10em;
-        right: 100%;
-        margin-right: 0.5em;
+      right: 100%;
+      margin-right: 0.5em;
       height: 0.3em;
-        top: 50%;
-        transform: translateY(-50%);
-      background: linear-gradient(to left, rgba(0,0,0,10%), rgba(0,0,0,5%) 10%, transparent);
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(to left, rgba(0, 0, 0, 10%), rgba(0, 0, 0, 5%) 10%, transparent);
     }
 
 .prose h4:not([class])::before {
@@ -163,7 +172,7 @@ body  > main {
     }
 
 .prose blockquote + figcaption::before {
-        content: '—';
+        content: "—";
         margin-right: 0.25em;
       }
 

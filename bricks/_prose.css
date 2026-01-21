@@ -101,7 +101,6 @@
     /* Workaround for headings in Markdown tables */
     big {
       font-weight: bold;
-      font-style: italic;
     }
   }
 

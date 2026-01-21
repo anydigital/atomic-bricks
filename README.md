@@ -80,26 +80,31 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
 - Anchor links (starting with `#`) have no text decoration
 - Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
+- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration
 
 **Headings:**
 
 - `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`)
-- `h2` headings (without classes) get a full-width decorative bar above them (`0.4em` height, positioned `1em` above, with `2em` top margin)
-- `h3` headings (without classes) get a decorative gradient bar to the left (`10em` width, `0.3em` height, fading from 10% to 5% to transparent opacity)
-- `h4` headings (without classes) get a similar decorative gradient bar but thinner (`0.2em` height)
+- `h2` headings (without classes) get a full-width decorative bar above them (`0.4em` height, positioned `1em` above with `2em` top margin, centered using transform)
+- `h3` and `h4` headings (without classes) get a decorative gradient bar to the left (`10em` width, positioned with `0.5em` right margin, vertically centered using transform, gradient from 10% to 5% to transparent opacity)
+- `h4` headings have a thinner bar (`0.2em` height instead of `0.3em`)
 
 **Tables:**
 
 - Tables are displayed as blocks with horizontal scrolling
 - On mobile (max-width: 767px), tables get `1.5em` horizontal padding
-- Table cells have `1em` vertical padding (top and bottom)
-- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`)
-- Support for headings in Markdown tables using `big` elements (styled as bold italic)
+- Table cells (`th` and `td`) have `1em` vertical padding (top and bottom)
+- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`, with zero margin)
+- Support for headings in Markdown tables using `big` elements (styled as bold)
 
 **Blockquotes:**
 
 - Lighter font weight (`300`)
-- Adjacent `figcaption` elements are styled with italic text, right alignment, lighter weight (`300`), negative top margin (`-1em`), and an em dash prefix
+- Adjacent `figcaption` elements (using `+ figcaption` selector) are styled with italic text, right alignment, lighter weight (`300`), negative top margin (`-1em`), and an em dash prefix (`—`) with `0.25em` right margin
+
+**Code Blocks:**
+
+- Code blocks with `data-file` attribute display the filename above the code block (styled with 50% opacity, italic, and `1.5em` bottom margin)
 
 **Usage:**
 
@@ -155,14 +160,14 @@ Base HTML templates that provide the essential document structure with built-in 
 
 - HTML5 DOCTYPE with language attribute (defaults to `en`, configurable via `site.lang`)
 - UTF-8 charset and comprehensive viewport meta tag with `viewport-fit=cover` for notched devices
-- Dynamic title generation with site title suffix
-- Favicon link
+- Dynamic title generation with site title suffix (title is stripped of HTML tags and separated with `|`)
+- Favicon link (to `/favicon.ico`)
 - Automatic stylesheet linking from `site.styles` array
-- Inline styles from `site.inline_styles` array
+- Inline styles from `site.inline_styles` array (joined with newlines in a `<style>` tag)
 - Automatic script loading from `site.scripts` array (with `defer` attribute)
-- Inline module scripts from `site.inline_scripts` array
+- Inline module scripts from `site.inline_scripts` array (joined with newlines in a `<script type="module">` tag)
 - Custom header content via `content_for_header`
-- Google Tag Manager integration (conditional on production environment)
+- Google Tag Manager integration (automatically rendered via `_gtm.liquid` template for both `<head>` and `<body>`)
 
 **Usage:**
 
@@ -173,6 +178,8 @@ Base HTML templates that provide the essential document structure with built-in 
 
 {% render 'bricks/__html-end' %}
 ```
+
+Note: Google Tag Manager is automatically included in both `<head>` and `<body>` (via the `_gtm.liquid` template) when `site.prod` and `site.gtm_id` are set.
 
 **Variables:**
 
@@ -231,7 +238,9 @@ A template for embedding Google Tag Manager scripts in your pages.
 - `site.prod` - Boolean flag to enable GTM only in production
 - `for_body` - Boolean flag (default: `false`). When `false`, renders the script tag for the `<head>`. When `true`, renders the noscript fallback for the `<body>`.
 
-**Usage:**
+**Note:** This template is automatically included when using `__html-begin.liquid` and `__html-end.liquid`. You only need to manually render it if you're not using those base templates.
+
+**Manual Usage:**
 
 In your base template's `<head>`:
 
@@ -245,7 +254,7 @@ In your base template's `<body>` (right after the opening tag):
 {% render 'bricks/_gtm', site: site, for_body: true %}
 ```
 
-**Example:**
+**Example (Manual Integration):**
 
 ```liquid
 <!DOCTYPE html>
@@ -260,7 +269,7 @@ In your base template's `<body>` (right after the opening tag):
 </html>
 ```
 
-**Note:** The GTM script is only rendered when both `site.prod` is `true` and `site.gtm_id` is set.
+**Rendering Logic:** The GTM script is only rendered when both `site.prod` is `true` and `site.gtm_id` is set. The template uses a capture block to strip whitespace from the output.
 
 ## License
 

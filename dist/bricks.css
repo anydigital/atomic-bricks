@@ -157,7 +157,6 @@ body  > main {
 
 .prose th big,.prose td big {
       font-weight: bold;
-      font-style: italic;
     }
 
 .prose blockquote {
@@ -175,6 +174,14 @@ body  > main {
         content: "—";
         margin-right: 0.25em;
       }
+
+.prose code[data-file]::before {
+      content: attr(data-file);
+      display: block;
+      margin-bottom: 1.5em;
+      opacity: 0.5;
+      font-style: italic;
+    }
 
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 

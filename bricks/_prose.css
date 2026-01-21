@@ -119,4 +119,14 @@
       }
     }
   }
+
+  code[data-file] {
+    &::before {
+      content: attr(data-file);
+      display: block;
+      margin-bottom: 1.5em;
+      opacity: 0.5;
+      font-style: italic;
+    }
+  }
 }

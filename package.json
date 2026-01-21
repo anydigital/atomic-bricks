@@ -4,10 +4,6 @@
   "description": "Framework-agnostic CSS utilities and single-file Liquid 'bricks' for modern web development.",
   "main": "dist/bricks.css",
   "style": "dist/bricks.css",
-  "files": [
-    "dist",
-    "bricks"
-  ],
   "scripts": {
     "postcss": "postcss bricks/bricks.css -o dist/bricks.css",
     "build": "npm run postcss -- --no-map",
@@ -33,7 +29,5 @@
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.6.0"
-  },
-  "jsdelivr": "dist/bricks.css",
-  "unpkg": "dist/bricks.css"
+  }
 }

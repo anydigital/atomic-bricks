@@ -80,7 +80,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
 - Anchor links (starting with `#`) have no text decoration
 - Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
-- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration
+- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration, with `1em` height, `-10%` vertical alignment, and `0.25em` right margin. Nested `img` elements are styled with `100%` height and no margin
 
 **Headings:**
 
@@ -93,9 +93,10 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 - Tables are displayed as blocks with horizontal scrolling
 - On mobile (max-width: 767px), tables get `1.5em` horizontal padding
-- Table cells (`th` and `td`) have `1em` vertical padding (top and bottom)
-- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`, with zero margin)
+- Table cells (`th` and `td`) have `1em` vertical padding (top and bottom) and `top` vertical alignment
+- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`, with zero margin and hidden visibility)
 - Support for headings in Markdown tables using `big` elements (styled as bold)
+- Images in table cells have no top margin and `0.75em` bottom margin
 
 **Blockquotes:**
 

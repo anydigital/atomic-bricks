@@ -58,10 +58,18 @@ body  > main {
 /* Helper to insert icons in links */
 
 .prose a i {
+      height: 1em;
+      vertical-align: -10%;
+      margin-right: 0.25em;
       font-style: normal;
       /* Workaround to prevent underline */
       display: inline-block;
     }
+
+.prose a i img {
+        height: 100%;
+        margin: 0 !important;
+      }
 
 .prose h1 small,.prose h1 sup,.prose h1 sub {
       font-size: 0.5em;
@@ -144,6 +152,7 @@ body  > main {
 .prose th,.prose td {
     padding-top: 1em;
     padding-bottom: 1em;
+    vertical-align: top;
     /* Workaround to widen particular columns */
   }
 
@@ -157,6 +166,11 @@ body  > main {
 
 .prose th big,.prose td big {
       font-weight: bold;
+    }
+
+.prose th img,.prose td img {
+      margin-top: 0;
+      margin-bottom: 0.75em;
     }
 
 .prose blockquote {

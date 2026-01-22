@@ -100,6 +100,7 @@
   td {
     padding-top: 1em;
     padding-bottom: 1em;
+    vertical-align: top;
     /* Workaround to widen particular columns */
     hr {
       min-width: 25ch;
@@ -109,6 +110,11 @@
     /* Workaround for headings in Markdown tables */
     big {
       font-weight: bold;
+    }
+
+    img {
+      margin-top: 0;
+      margin-bottom: 0.75em;
     }
   }
 

@@ -105,7 +105,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 **Code Blocks:**
 
-- Code blocks with `data-file` attribute display the filename above the code block (styled with 50% opacity, italic, and `1.5em` bottom margin)
+- Code blocks with `data-caption` attribute display the caption above the code block (styled with 50% opacity, italic, and `1.5em` bottom margin)
 
 **Usage:**
 

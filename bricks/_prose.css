@@ -134,9 +134,9 @@
     }
   }
 
-  code[data-file] {
+  code[data-caption] {
     &::before {
-      content: attr(data-file);
+      content: attr(data-caption);
       display: block;
       margin-bottom: 1.5em;
       opacity: 0.5;

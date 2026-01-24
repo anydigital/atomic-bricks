@@ -89,10 +89,9 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 **Tables:**
 
-- Tables are displayed as blocks with horizontal scrolling
-- On mobile (max-width: 767px), tables get `1.5em` horizontal padding
+- Tables within `.breakout` containers are automatically styled for full-bleed display and horizontal scrolling
 - Table cells (`th` and `td`) have `1em` vertical padding (top and bottom) and `top` vertical alignment
-- Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`, with zero margin and hidden visibility)
+- Workaround for widening columns using hidden `hr` elements (width: `25ch`, with zero margin and hidden visibility)
 - Support for headings in Markdown tables using `big` elements (styled as bold)
 - Images in table cells have no top margin and `1em` bottom margin
 
@@ -169,7 +168,7 @@ Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities fo
 </div>
 ```
 
-The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. This is automatically included when you import the stylesheet.
+The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. Tables inside `.breakout` are specifically enhanced for horizontal scrolling and full-bleed mobile display. This is automatically included when you import the stylesheet.
 
 ## Bricks (Template Components)
 

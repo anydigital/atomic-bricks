@@ -1,6 +1,6 @@
 {
   "name": "@anydigital/bricks",
-  "version": "1.0.0-alpha.18",
+  "version": "1.0.0-alpha.19",
   "description": "Framework-agnostic CSS utilities and single-file Liquid 'bricks' for modern web development.",
   "main": "dist/bricks.css",
   "style": "dist/bricks.css",

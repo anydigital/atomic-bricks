@@ -74,8 +74,12 @@ body a {
 
 .prose a i img {
         height: 100%;
-        margin: 0 !important;
       }
+
+.prose img:not(:where(.prose > img,.prose > p > img)) {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
 
 .prose h1 {
     margin-bottom: 0.5em !important;
@@ -115,11 +119,6 @@ body a {
 
 .prose th big,.prose td big {
       font-weight: bold;
-    }
-
-.prose th img,.prose td img {
-      margin-top: 0;
-      margin-bottom: 0.75em;
     }
 
 .prose blockquote {

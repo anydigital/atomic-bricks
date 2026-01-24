@@ -81,11 +81,11 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
 - Anchor links (starting with `#`) have no text decoration
 - Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
-- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration, with `1em` height, `-10%` vertical alignment, and `0.25em` right margin. Nested `img` elements are styled with `100%` height and no margin
+- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration, with `1em` height, `-10%` vertical alignment, and `0.25em` right margin. Nested `img` elements are styled with `100%` height and `1em` bottom margin
 
 **Headings:**
 
-- `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`)
+- `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`). The `h1` itself has a `0.5em` bottom margin.
 
 **Tables:**
 
@@ -94,7 +94,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Table cells (`th` and `td`) have `1em` vertical padding (top and bottom) and `top` vertical alignment
 - Workaround for widening columns using hidden `hr` elements (minimum width: `25ch`, with zero margin and hidden visibility)
 - Support for headings in Markdown tables using `big` elements (styled as bold)
-- Images in table cells have no top margin and `0.75em` bottom margin
+- Images in table cells have no top margin and `1em` bottom margin
 
 **Blockquotes:**
 
@@ -110,7 +110,9 @@ The `.prose` class provides enhanced typography for article content and long-for
 Includes specialized styling for Prism.js, specifically focusing on treeview components:
 
 - Custom styling for `.token.treeview-part`
-- Reduced opacity for entry lines and names to create a hierarchical visual effect
+- Reduced opacity for entry lines (25%) and names (50%) to create a hierarchical visual effect
+- Entry lines have a fixed width of `2.5em`
+- Last-child entry names have no `::before` pseudo-element
 - Supports complex file tree visualizations out of the box
 
 ### Utilities

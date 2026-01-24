@@ -63,6 +63,7 @@ body {
 
 - Automatic hyphenation for better text flow
 - Font smoothing for cleaner text rendering across browsers
+- Hyphenation is disabled for links to prevent awkward breaks
 
 This is automatically applied when you include the stylesheet.
 
@@ -85,9 +86,6 @@ The `.prose` class provides enhanced typography for article content and long-for
 **Headings:**
 
 - `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`)
-- `h2` headings (without classes) get a full-width decorative bar above them (`0.4em` height, positioned `1em` above with `2em` top margin, centered using transform)
-- `h3` and `h4` headings (without classes) get a decorative gradient bar to the left (`10em` width, positioned with `0.5em` right margin, vertically centered using transform, gradient from 10% to 5% to transparent opacity)
-- `h4` headings have a thinner bar (`0.2em` height instead of `0.3em`)
 
 **Tables:**
 
@@ -106,6 +104,28 @@ The `.prose` class provides enhanced typography for article content and long-for
 **Code Blocks:**
 
 - Code blocks with `data-caption` attribute display the caption above the code block (styled with 50% opacity, italic, and `1.5em` bottom margin)
+
+### Code Highlighting
+
+Includes specialized styling for Prism.js, specifically focusing on treeview components:
+
+- Custom styling for `.token.treeview-part`
+- Reduced opacity for entry lines and names to create a hierarchical visual effect
+- Supports complex file tree visualizations out of the box
+
+### Utilities
+
+#### Scrollbar Inversion
+
+The `.invert` class can be used to invert the scrollbar colors, which is particularly useful for dark themes or specific UI components:
+
+```css
+.invert {
+  ::-webkit-scrollbar {
+    filter: invert(1) !important;
+  }
+}
+```
 
 **Usage:**
 

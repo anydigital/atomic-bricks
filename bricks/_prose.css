@@ -40,52 +40,13 @@
   }
 
   h1 {
+    margin-bottom: 0.5em !important;
+
     small,
     sup,
     sub {
       font-size: 0.5em;
       font-weight: 300;
-    }
-  }
-
-  h2:not([class]),
-  h3:not([class]),
-  h4:not([class]) {
-    position: relative;
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      background-color: rgba(0, 0, 0, 5%);
-    }
-  }
-  h2:not([class]) {
-    margin-top: 2em;
-
-    &::before {
-      width: 100vw;
-      left: 50%;
-      height: 0.4em;
-      top: -1em;
-      transform: translateX(-50%);
-    }
-  }
-  h3:not([class]),
-  h4:not([class]) {
-    &::before {
-      width: 10em;
-      right: 100%;
-      margin-right: 0.5em;
-      height: 0.3em;
-      top: 50%;
-      transform: translateY(-50%);
-      background: linear-gradient(to left, rgba(0, 0, 0, 10%), rgba(0, 0, 0, 5%) 10%, transparent);
-    }
-  }
-  h4:not([class]) {
-    &::before {
-      height: 0.2em;
     }
   }
 

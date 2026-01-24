@@ -56,13 +56,6 @@
     }
   }
 
-  table {
-    display: block;
-    overflow-x: auto;
-    @media (max-width: 767px) {
-      padding-inline: 1.5em;
-    }
-  }
   th,
   td {
     padding-top: 1em;
@@ -70,7 +63,8 @@
     vertical-align: top;
     /* Workaround to widen particular columns */
     hr {
-      min-width: 25ch;
+      width: 25ch;
+      height: 0;
       margin: 0;
       visibility: hidden;
     }

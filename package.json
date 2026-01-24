@@ -1,6 +1,6 @@
 {
   "name": "@anydigital/bricks",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0-alpha.20",
   "description": "Framework-agnostic CSS utilities and single-file Liquid 'bricks' for modern web development.",
   "main": "dist/bricks.css",
   "style": "dist/bricks.css",
@@ -24,7 +24,7 @@
   "author": "Anton Staroverov",
   "license": "MIT",
   "devDependencies": {
-    "@anydigital/breakout-css": "^1.0.0-alpha.9",
+    "@anydigital/breakout-css": "^1.0.0-alpha.10",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.1",

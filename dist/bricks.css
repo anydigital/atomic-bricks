@@ -91,14 +91,13 @@ body a {
     }
 
 .prose th,.prose td {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-block: 1em;
     vertical-align: top;
     /* Workaround to widen particular columns */
   }
 
 .prose th hr,.prose td hr {
-      width: 25ch;
+      width: 20ch;
       height: 0;
       margin: 0;
       visibility: hidden;
@@ -167,7 +166,7 @@ body a {
       width: max-content;
       min-width: auto;
       max-width: 100vw;
-      padding-inline: 1.5rem;
+      padding-inline: 7.5%;
 
       /* Let them scroll */
       display: block;

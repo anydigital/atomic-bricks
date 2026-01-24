@@ -19,4 +19,9 @@ body {
   > main {
     flex-grow: 1;
   }
+
+  /* Disable hyphenation for links */
+  a {
+    hyphens: none;
+  }
 }

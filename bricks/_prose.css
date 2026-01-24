@@ -34,8 +34,14 @@
 
       img {
         height: 100%;
-        margin: 0 !important;
       }
+    }
+  }
+
+  img {
+    &:not(:where(.prose > img, .prose > p > img)) {
+      margin-top: 0;
+      margin-bottom: 1em;
     }
   }
 
@@ -71,11 +77,6 @@
     /* Workaround for headings in Markdown tables */
     big {
       font-weight: bold;
-    }
-
-    img {
-      margin-top: 0;
-      margin-bottom: 0.75em;
     }
   }
 

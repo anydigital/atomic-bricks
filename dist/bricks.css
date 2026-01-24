@@ -34,6 +34,118 @@ body a {
     hyphens: none;
   }
 
+.prose {
+  /* Container-like behavior with padding and auto margins */
+  width: 100%;
+  padding: 1rem;
+  margin-inline: auto;
+}
+
+.prose a {
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 1px;
+    /* Don't underline links that point to anchors */
+  }
+
+.prose a[href^="#"] {
+      text-decoration: none;
+    }
+
+.prose a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+.prose a small,.prose a sup,.prose a sub {
+      font-weight: 300;
+      /* Workaround to prevent underline */
+      display: inline-block;
+    }
+
+/* Helper to insert icons in links */
+
+.prose a i {
+      height: 1em;
+      vertical-align: -10%;
+      margin-right: 0.25em;
+      font-style: normal;
+      /* Workaround to prevent underline */
+      display: inline-block;
+    }
+
+.prose a i img {
+        height: 100%;
+        margin: 0 !important;
+      }
+
+.prose h1 {
+    margin-bottom: 0.5em !important;
+  }
+
+.prose h1 small,.prose h1 sup,.prose h1 sub {
+      font-size: 0.5em;
+      font-weight: 300;
+    }
+
+.prose table {
+    display: block;
+    overflow-x: auto;
+  }
+
+@media (max-width: 767px) {
+
+.prose table {
+      padding-inline: 1.5em;
+  }
+    }
+
+.prose th,.prose td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    vertical-align: top;
+    /* Workaround to widen particular columns */
+  }
+
+.prose th hr,.prose td hr {
+      min-width: 25ch;
+      margin: 0;
+      visibility: hidden;
+    }
+
+/* Workaround for headings in Markdown tables */
+
+.prose th big,.prose td big {
+      font-weight: bold;
+    }
+
+.prose th img,.prose td img {
+      margin-top: 0;
+      margin-bottom: 0.75em;
+    }
+
+.prose blockquote {
+    font-weight: 300;
+  }
+
+.prose blockquote  + figcaption {
+      margin-top: -1em;
+      text-align: right;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+.prose blockquote + figcaption::before {
+        content: "—";
+        margin-right: 0.25em;
+      }
+
+.prose code[data-caption]::before {
+      content: attr(data-caption);
+      display: block;
+      margin-bottom: 1.5em;
+      opacity: 0.5;
+      font-style: italic;
+    }
+
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 
 .breakout {
@@ -165,117 +277,7 @@ body a {
       display: none !important;
     }
 
-.prose {
-  /* Container-like behavior with padding and auto margins */
-  width: 100%;
-  padding: 1rem;
-  margin-inline: auto;
-}
-
-.prose a {
-    text-underline-offset: 0.1em;
-    text-decoration-thickness: 1px;
-    /* Don't underline links that point to anchors */
-  }
-
-.prose a[href^="#"] {
-      text-decoration: none;
-    }
-
-.prose a:hover {
-      text-decoration-thickness: 2px;
-    }
-
-.prose a small,.prose a sup,.prose a sub {
-      font-weight: 300;
-      /* Workaround to prevent underline */
-      display: inline-block;
-    }
-
-/* Helper to insert icons in links */
-
-.prose a i {
-      height: 1em;
-      vertical-align: -10%;
-      margin-right: 0.25em;
-      font-style: normal;
-      /* Workaround to prevent underline */
-      display: inline-block;
-    }
-
-.prose a i img {
-        height: 100%;
-        margin: 0 !important;
-      }
-
-.prose h1 {
-    margin-bottom: 0.5em !important;
-  }
-
-.prose h1 small,.prose h1 sup,.prose h1 sub {
-      font-size: 0.5em;
-      font-weight: 300;
-    }
-
-.prose table {
-    display: block;
-    overflow-x: auto;
-  }
-
-@media (max-width: 767px) {
-
-.prose table {
-      padding-inline: 1.5em;
-  }
-    }
-
-.prose th,.prose td {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    vertical-align: top;
-    /* Workaround to widen particular columns */
-  }
-
-.prose th hr,.prose td hr {
-      min-width: 25ch;
-      margin: 0;
-      visibility: hidden;
-    }
-
-/* Workaround for headings in Markdown tables */
-
-.prose th big,.prose td big {
-      font-weight: bold;
-    }
-
-.prose th img,.prose td img {
-      margin-top: 0;
-      margin-bottom: 0.75em;
-    }
-
-.prose blockquote {
-    font-weight: 300;
-  }
-
-.prose blockquote  + figcaption {
-      margin-top: -1em;
-      text-align: right;
-      font-style: italic;
-      font-weight: 300;
-    }
-
-.prose blockquote + figcaption::before {
-        content: "—";
-        margin-right: 0.25em;
-      }
-
-.prose code[data-caption]::before {
-      content: attr(data-caption);
-      display: block;
-      margin-bottom: 1.5em;
-      opacity: 0.5;
-      font-style: italic;
-    }
+/* after prose to override it */
 
 /* Prism.js */
 

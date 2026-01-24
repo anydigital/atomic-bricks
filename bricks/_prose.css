@@ -58,12 +58,11 @@
 
   th,
   td {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-block: 1em;
     vertical-align: top;
     /* Workaround to widen particular columns */
     hr {
-      width: 25ch;
+      width: 20ch;
       height: 0;
       margin: 0;
       visibility: hidden;

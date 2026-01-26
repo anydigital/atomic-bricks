@@ -1,6 +1,16 @@
-/* Utility classes */
+/* Utility classes and fixes */
+
 .invert {
+  /* Fix the scrollbar color when inverted */
   ::-webkit-scrollbar {
     filter: invert(1) !important;
+  }
+}
+
+/* Workaround for icon to stay with text in links */
+a.whitespace-nowrap {
+  white-space: nowrap;
+  span {
+    white-space: normal;
   }
 }

@@ -8,11 +8,6 @@ body {
   /* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
   min-height: 100dvh;
 
-  /* Enable hyphenation and font smoothing for better typography */
-  hyphens: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   /* Make the body a flex container with column layout; main fills space */
   display: flex;
   flex-direction: column;
@@ -20,7 +15,10 @@ body {
     flex-grow: 1;
   }
 
-  /* Disable hyphenation for links and tables */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+  /* Links and tables are better (safer) without hyphenation */
   a,
   table {
     hyphens: none;

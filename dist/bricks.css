@@ -14,11 +14,6 @@ body {
   /* Ensures body takes at least the full height of the viewport (using dynamic viewport height for better mobile support) */
   min-height: 100dvh;
 
-  /* Enable hyphenation and font smoothing for better typography */
-  hyphens: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   /* Make the body a flex container with column layout; main fills space */
   display: flex;
   flex-direction: column;
@@ -28,16 +23,21 @@ body  > main {
     flex-grow: 1;
   }
 
-/* Disable hyphenation for links and tables */
+body {
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+  /* Links and tables are better (safer) without hyphenation */
+}
 
 body a,body table {
     hyphens: none;
   }
 
 .prose {
-  /* Container-like behavior with padding and auto margins */
+  /* Container-like behavior with auto margins */
   width: 100%;
-  padding: 1rem;
   margin-inline: auto;
 
   /* Helper for multi-line subtitles */
@@ -316,8 +316,20 @@ body a,body table {
       display: none !important;
     }
 
-/* Utility classes */
+/* Utility classes and fixes */
+
+/* Fix the scrollbar color when inverted */
 
 .invert ::-webkit-scrollbar {
     filter: invert(1) !important;
+  }
+
+/* Workaround for icon to stay with text in links */
+
+a.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+a.whitespace-nowrap span {
+    white-space: normal;
   }

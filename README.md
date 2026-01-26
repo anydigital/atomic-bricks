@@ -73,7 +73,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 **Container:**
 
-- Full width with `1rem` padding
+- Full width
 - Centered with automatic inline margins
 
 **Typography Helpers:**
@@ -132,6 +132,18 @@ The `.invert` class can be used to invert the scrollbar colors, which is particu
   }
 }
 ```
+
+#### Link Whitespace Control
+
+The `.whitespace-nowrap` class can be applied to links to prevent them from wrapping, which is particularly useful when links contain icons that should stay with the text:
+
+```html
+<a href="#" class="whitespace-nowrap">
+  <i><img src="icon.svg" alt="" /></i>Stay with me
+</a>
+```
+
+This ensures the icon and the text stay together on the same line. If you need nested elements to allow wrapping, they are automatically reset to `white-space: normal`.
 
 **Usage:**
 

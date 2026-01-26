@@ -63,7 +63,7 @@ body {
 
 - Automatic hyphenation for better text flow
 - Font smoothing for cleaner text rendering across browsers
-- Hyphenation is disabled for links to prevent awkward breaks
+- Hyphenation is disabled for links and tables to prevent awkward breaks
 
 This is automatically applied when you include the stylesheet.
 
@@ -76,22 +76,27 @@ The `.prose` class provides enhanced typography for article content and long-for
 - Full width with `1rem` padding
 - Centered with automatic inline margins
 
+**Typography Helpers:**
+
+- `small` elements: styled for multi-line subtitles with top vertical alignment, `0.1em` top margin, `1.1` line height, lighter weight (`300`), and displayed as `inline-block` with `100%` width to prevent underline decoration inside links
+
 **Links:**
 
 - Custom underline offset (`0.1em`) and thickness (`1px` default, `2px` on hover)
 - Anchor links (starting with `#`) have no text decoration
-- Special handling for `small`, `sup`, or `sub` elements: lighter weight (`300`) and displayed as `inline-block` to prevent underline decoration
-- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration, with `1em` height, `-10%` vertical alignment, and `0.25em` right margin. Nested `img` elements are styled with `100%` height and `1em` bottom margin
+- Icon helper: `i` elements inside links are displayed as `inline-block` with normal font style to prevent underline decoration, with `1em` height and `0.25em` right margin. Nested `img` elements are styled with `100%` height, no margin, and positioned `0.15em` from the bottom for proper alignment
 
 **Headings:**
 
-- `h1` with `small`, `sup`, or `sub` elements get reduced font size (`0.5em`) and lighter weight (`300`). The `h1` itself has a `0.5em` bottom margin.
+- `h1` elements have a `0.5em` bottom margin
+- `h1 small` elements get reduced font size (`50%`)
 
 **Tables:**
 
 - Tables within `.breakout` containers are automatically styled for full-bleed display and horizontal scrolling
-- Table cells (`th` and `td`) have `1em` vertical padding (top and bottom) and `top` vertical alignment
-- Workaround for widening columns using hidden `hr` elements (width: `25ch`, with zero margin and hidden visibility)
+- Table cells (`th` and `td`) have padding of `1rem 2rem 1rem 0` (extra space on the right for better horizontal scroll on mobile) and `top` vertical alignment
+- Table headers (`th`) have `bottom` vertical alignment
+- Workaround for widening columns using hidden `hr` elements (width: `12ch`, with zero margin and hidden visibility)
 - Support for headings in Markdown tables using `big` elements (styled as bold)
 - Images in table cells have no top margin and `1em` bottom margin
 
@@ -168,7 +173,7 @@ Includes [breakout-css](https://github.com/anydigital/breakout-css) utilities fo
 </div>
 ```
 
-The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. Tables inside `.breakout` are specifically enhanced for horizontal scrolling and full-bleed mobile display. This is automatically included when you import the stylesheet.
+The breakout container has `10%` inline padding and a max-width of `calc(10% + 65ch + 10%)`. The breakout utilities support images, pictures, figures, canvas, audio, video, tables, pre, iframe, and other media elements. Tables inside `.breakout` are specifically enhanced for horizontal scrolling and full-bleed mobile display. This is automatically included when you import the stylesheet.
 
 ## Bricks (Template Components)
 

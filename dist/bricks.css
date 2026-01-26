@@ -28,9 +28,9 @@ body  > main {
     flex-grow: 1;
   }
 
-/* Disable hyphenation for links */
+/* Disable hyphenation for links and tables */
 
-body a {
+body a,body table {
     hyphens: none;
   }
 
@@ -39,7 +39,19 @@ body a {
   width: 100%;
   padding: 1rem;
   margin-inline: auto;
+
+  /* Helper for multi-line subtitles */
 }
+
+.prose small {
+    vertical-align: top;
+    margin-top: 0.1em;
+    line-height: 1.1;
+    font-weight: 300;
+    /* Workaround to prevent underline inside links */
+    display: inline-block;
+    width: 100%;
+  }
 
 .prose a {
     text-underline-offset: 0.1em;
@@ -55,17 +67,10 @@ body a {
       text-decoration-thickness: 2px;
     }
 
-.prose a small,.prose a sup,.prose a sub {
-      font-weight: 300;
-      /* Workaround to prevent underline */
-      display: inline-block;
-    }
-
 /* Helper to insert icons in links */
 
 .prose a i {
       height: 1em;
-      vertical-align: -10%;
       margin-right: 0.25em;
       font-style: normal;
       /* Workaround to prevent underline */
@@ -74,6 +79,9 @@ body a {
 
 .prose a i img {
         height: 100%;
+        margin: 0;
+        position: relative;
+        bottom: -0.15em;
       }
 
 .prose img:not(:where(.prose > img,.prose > p > img)) {
@@ -85,22 +93,25 @@ body a {
     margin-bottom: 0.5em !important;
   }
 
-.prose h1 small,.prose h1 sup,.prose h1 sub {
-      font-size: 0.5em;
-      font-weight: 300;
+.prose h1 small {
+      font-size: 50%;
     }
 
 .prose th,.prose td {
-    padding-block: 1em;
+    /* Keep extra space on the right for better horizontal scroll on mobile */
+    padding: 1rem 2rem 1rem 0;
     vertical-align: top;
     /* Workaround to widen particular columns */
   }
 
 .prose th hr,.prose td hr {
-      width: 20ch;
+      width: 12ch;
       height: 0;
       margin: 0;
       visibility: hidden;
+      /* &.ch16 {
+        width: 16ch;
+      } */
     }
 
 /* Workaround for headings in Markdown tables */
@@ -108,6 +119,10 @@ body a {
 .prose th big,.prose td big {
       font-weight: bold;
     }
+
+.prose th {
+    vertical-align: bottom;
+  }
 
 .prose blockquote {
     font-weight: 300;
@@ -136,7 +151,9 @@ body a {
 /* Breakout CSS - Framework-agnostic utilities for breaking out images and figures */
 
 .breakout {
+  /* Prepare the container for breakout elements */
   padding-inline: 10%;
+  max-width: calc(10% + 65ch + 10%);
 
   /* Direct children, or wrapped in <p> for Markdown support */
 }

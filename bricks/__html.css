@@ -20,8 +20,9 @@ body {
     flex-grow: 1;
   }
 
-  /* Disable hyphenation for links */
-  a {
+  /* Disable hyphenation for links and tables */
+  a,
+  table {
     hyphens: none;
   }
 }

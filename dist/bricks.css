@@ -328,6 +328,8 @@ body a,body table {
 
 a.whitespace-nowrap {
   white-space: nowrap;
+  /* Fix for Safari :( why Safari, why? */
+  display: inline-block;
 }
 
 a.whitespace-nowrap span {

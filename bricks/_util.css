@@ -10,6 +10,9 @@
 /* Workaround for icon to stay with text in links */
 a.whitespace-nowrap {
   white-space: nowrap;
+  /* Fix for Safari :( why Safari, why? */
+  display: inline-block;
+
   span {
     white-space: normal;
   }

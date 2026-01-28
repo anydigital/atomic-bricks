@@ -43,9 +43,9 @@ body a,body table {
   /* Helper for multi-line subtitles */
 }
 
-.prose small {
+.prose sub {
     vertical-align: top;
-    margin-top: 0.1em;
+    bottom: -0.05em;
     line-height: 1.1;
     font-weight: 300;
     /* Workaround to prevent underline inside links */
@@ -89,11 +89,56 @@ body a,body table {
       margin-bottom: 1em;
     }
 
+/* Support for markdown anchors */
+
+.prose h1,.prose h2,.prose h3,.prose h4,.prose h5,.prose h6 {
+    position: relative;
+  }
+
+.prose h1 .header-anchor,.prose h2 .header-anchor,.prose h3 .header-anchor,.prose h4 .header-anchor,.prose h5 .header-anchor,.prose h6 .header-anchor {
+      display: none;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      padding-right: 0.2ch;
+      color: rgba(0, 0, 0, 0.25);
+    }
+
+.prose h1:hover .header-anchor,.prose h2:hover .header-anchor,.prose h3:hover .header-anchor,.prose h4:hover .header-anchor,.prose h5:hover .header-anchor,.prose h6:hover .header-anchor {
+        display: block;
+      }
+
+/* Support for `breakout-css` headings */
+
+.prose h1:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
+.prose h2:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
+.prose h3:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
+.prose h4:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
+.prose h5:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
+.prose h6:hover::before {
+        margin-right: 1.5ch !important;
+      }
+
 .prose h1 {
     margin-bottom: 0.5em !important;
   }
 
-.prose h1 small {
+.prose h1 sub {
       font-size: 50%;
     }
 

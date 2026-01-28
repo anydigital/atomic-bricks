@@ -78,7 +78,7 @@ The `.prose` class provides enhanced typography for article content and long-for
 
 **Typography Helpers:**
 
-- `small` elements: styled for multi-line subtitles with top vertical alignment, `0.1em` top margin, `1.1` line height, lighter weight (`300`), and displayed as `inline-block` with `100%` width to prevent underline decoration inside links
+- `sub` elements: styled for multi-line subtitles with top vertical alignment, `1.1` line height, lighter weight (`300`), and displayed as `inline-block` with `100%` width to prevent underline decoration inside links
 
 **Links:**
 
@@ -89,7 +89,8 @@ The `.prose` class provides enhanced typography for article content and long-for
 **Headings:**
 
 - `h1` elements have a `0.5em` bottom margin
-- `h1 small` elements get reduced font size (`50%`)
+- `h1 sub` elements get reduced font size (`50%`)
+- Support for heading anchors via `.header-anchor` class (displayed on hover to the left of the heading)
 
 **Tables:**
 

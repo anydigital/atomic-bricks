@@ -1,6 +1,7 @@
 <!doctype html>
-{% # if-true trick not to break auto-formatting %}
-{% if true %}<html lang="{{ site.lang | default: 'en' }}">{% endif %}
+{% if true %}
+  <html lang="{{ site.lang | default: 'en' }}">
+{% endif %}
 
 <head>
   <meta charset="utf-8">
@@ -11,29 +12,24 @@
   </title>
   <link rel="icon" href="/favicon.ico">
 
-  {% # styles %}
   {%- for href in site.styles %}
     <link rel="stylesheet" href="{{ href }}">
   {%- endfor %}
-  <style>
-    {{ site.inline_styles | join: '\n' }}
-  </style>
+  {% # prettier-ignore %}
+  <style>{{ site.inline_styles | join: '\n' }}</style>
+  {% # %}
 
-  {% # scripts %}
   {%- for src in site.scripts %}
     <script src="{{ src }}" defer></script>
   {%- endfor %}
-  <script type="module">
-    {{ site.inline_scripts | join: '\n' }}
-  </script>
+  {% # prettier-ignore %}
+  <script type="module">{{ site.inline_scripts | join: '\n' }}</script>
+  {% # %}
 
-  {% # custom %}
   {{ content_for_header }}
-
   {% render './_gtm', site: site %}
 </head>
 
-{% # if-true trick not to break auto-formatting %}
 {% if true %}
   <body>
     {% render './_gtm', site: site, for_body: true %}
